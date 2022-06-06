@@ -9,11 +9,40 @@
  * Given an integer array arr that is "guaranteed" to be a mountain, return any i such that arr[0] < arr[1] < ... arr[i - 1] < arr[i] > arr[i + 1] > ... > arr[arr.length - 1].
  */
 
-// using quick sort
+// quicksort
 // 1. partitioning
-// 2. 
+// 2. recursion
+// 3. base case
 
-
-const peakIndexInMountainArray = (arr) => {
-  let pivot = arr[0]
+const partition = (arr, left, right) => {
+  let pivot = arr[Math.floor((left + right) / 2)]
+  while (left <= right) {
+    while (arr[left] < pivot) {
+      left++
+    }
+    while (arr[right] > pivot) {
+      right--
+    }
+    if (left <= right) {
+      [arr[left], arr[right]] = [arr[right], arr[left]]
+      left++
+      right--
+    }
+  }
+  return left
 }
+
+const quickSort = (arr, left, right) => {
+  if (left < right) {
+    let pivot = partition(arr, left, right)
+    quickSort(arr, left, pivot - 1)
+    quickSort(arr, pivot + 1, right)
+  }
+}
+
+const sortedArray = (arr) => {
+  quickSort(arr, 0, arr.length - 1)
+  return arr
+}
+
+console.log(sortedArray([6,2,3,1,5,4])) // [1,2,3,4,5,6]

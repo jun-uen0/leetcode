@@ -9,19 +9,19 @@
 // space: O(1)
 
 const searchInsert = function(nums, target) {
-  let left = 0;
-  let right = nums.length - 1;
+  let left = 0
+  let right = nums.length - 1
   while (left <= right) {
-    const mid = Math.floor((left + right) / 2);
+    const mid = Math.floor((left + right) / 2)
     if (nums[mid] === target) {
-      return mid;
+      return mid
     } else if (nums[mid] > target) {
-      right = mid - 1;
+      right = mid - 1
     } else {
-      left = mid + 1;
+      left = mid + 1
     }
   }
-  return left;
+  return left
 }
 
-console.log(searchInsert([1,3,5,6], 3));
+console.log(searchInsert([1,3,5,6], 3))

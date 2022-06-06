@@ -22,39 +22,6 @@ let start = 1
 let end = 2147483647
 
 var guessNumber = function(n) {
-  
-//   if(n === 2) {
-//     if (guess(n) === 0) {
-//       guessNum = n
-//       return guessNum
-//     } else {
-//       guessNum = 1
-//       return guessNum
-//     }
-//   }
-  
-//   end = n
-//   if (guess(end) === 0) {
-//     guessNum = end
-//     return guessNum
-//   }
-  
-//   guessNum = Math.floor((end - start)/2) + start
-  
-//   if (guess(guessNum) === 0) {
-//     return guessNum 
-//   } else if (guess(guessNum)　=== -1) {
-//     end = guessNum
-//     console.log(end)
-//     guessNumber(end)
-//   } else if (guess(guessNum) === 1) {
-//     start = guessNum
-//     console.log(end)
-//     guessNumber(end)
-//   } else {
-//     console.error("Error")
-//   }
-//   return guessNum
   var guessNumber = function(n) {
     let left = 1, right = n
 
