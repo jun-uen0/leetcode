@@ -35,33 +35,18 @@ divisor = -10
 def divide() -> int:
 
   if (dividend == 0) or (divisor == 0):
-    # print("if dividend == 0:")
     return 0
-  
-  # if dividend == divisor:
-  #   # print("dividend == divisor:")
-  #   return 1
-
-  is_minus = False
-  if (dividend > 0 and divisor < 0) or (dividend < 0 and divisor > 0):
-    # print("is_minus = True")
-    is_minus = True
-  # print("is_minus = False")
   
   dividend_abs = abs(dividend)
   divisor_abs = abs(divisor)
   
   count = 0
   while dividend_abs >= divisor_abs:
-    # print("count up")
     count = count + 1
     dividend_abs -= divisor_abs
 
-  # print("count")
-  # print(count)
-
-  if is_minus:
-    return  -abs(count)
+  if (dividend > 0 and divisor < 0) or (dividend < 0 and divisor > 0):
+    return  -count
   else:
     return count
 
