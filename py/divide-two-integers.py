@@ -24,13 +24,14 @@
 
 # divisor != 0 (dividend is possibility 0)
 # -2^31 <= dividend, divisor <= 2^31 - 1
+
+dividend = 10
+divisor = -10
+
 ###############################################################################
 # My solution
 # Runtime: O(N)
 # Status: Time Limit Exceeded
-
-dividend = 10
-divisor = -10
 
 def divide() -> int:
 
@@ -54,9 +55,23 @@ print(divide())
 
 ###############################################################################
 # Other's solution (Faster time complexity)
+def divide_faster() -> int: 
+  if dividend == 0:
+    return 0
+  
+  dividend_abs = abs(dividend)
+  divisor_abs = abs(divisor)
+  
+  output = 0
+  while dividend_abs >= divisor_abs:
+    output = output + 1
+    dividend_abs -= divisor_abs
 
-# def divide_faster() -> int: 
+  if (dividend > 0 and divisor < 0) or (dividend < 0 and divisor > 0):
+    return  -output
+  return output
 
+print(divide_faster())
 
 
 
