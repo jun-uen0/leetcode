@@ -30,7 +30,7 @@ divisor = -10
 
 ###############################################################################
 # My solution
-# Runtime: O(N)
+# Time complexity: O(N)
 # Status: Time Limit Exceeded
 
 def divide() -> int:
@@ -55,6 +55,7 @@ print(divide())
 
 ###############################################################################
 # Other's solution (Faster time complexity)
+# Time complexity: O(Log N)
 def divide_faster() -> int: 
   if dividend == 0:
     return 0
@@ -64,8 +65,13 @@ def divide_faster() -> int:
   
   output = 0
   while dividend_abs >= divisor_abs:
-    output = output + 1
-    dividend_abs -= divisor_abs
+    temp = divisor_abs
+    mul = 1
+    while dividend_abs >= temp:
+      dividend_abs -= temp
+      output += mul
+      mul += mul
+      temp += temp
 
   if (dividend > 0 and divisor < 0) or (dividend < 0 and divisor > 0):
     return  -output
