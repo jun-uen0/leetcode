@@ -74,8 +74,9 @@ def divide_faster() -> int:
       temp += temp
 
   if (dividend > 0 and divisor < 0) or (dividend < 0 and divisor > 0):
-    return  -output
-  return output
+    output = -output
+  
+  return min(2147483647,max(-21474836478, output))
 
 print(divide_faster())
 
