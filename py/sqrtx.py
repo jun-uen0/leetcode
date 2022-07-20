@@ -77,6 +77,7 @@ print(my_sqrt_2(x)) # WA: Time Limit Exceeded
 # Other's Solution:
 # Time Conprexity: O(LogN)
 # Use binary search to find the square root
+# https://leetcode.com/problems/sqrtx/discuss/25061/Python-binary-search-solution-(O(lgn))
 def faster_sol(x):
   l, r = 0, x
   while l <= r:
