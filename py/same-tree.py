@@ -29,26 +29,39 @@
 #         self.right = right
 class Solution:
   def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-    
-    p_lst = []
-    q_lst = []
-    def dfs(root, lst) -> List:
-      if root is None: return
-      if (root.left is None) or (root.right is None):
-        lst.append('null')
-      dfs(root.left,lst)
-      lst.append(root.val)
-      dfs(root.right,lst)
-      return lst
-    
-    dfs(p,p_lst)
-    dfs(q,q_lst)
-    def is_same(lst1,lst2) -> bool:
-      if len(lst1) != len(lst2):
-        return False
-      for i in range(len(lst1)):
-        if lst1[i] != lst2[i]:
-          return False
-      return True
+  
+  p_lst = []
+  q_lst = []
+  def dfs(root, lst) -> List:
+    if root is None: return
+    if (root.left is None) or (root.right is None):
+    lst.append('null')
+    dfs(root.left,lst)
+    lst.append(root.val)
+    dfs(root.right,lst)
+    return lst
+  
+  dfs(p,p_lst)
+  dfs(q,q_lst)
+  def is_same(lst1,lst2) -> bool:
+    if len(lst1) != len(lst2):
+    return False
+    for i in range(len(lst1)):
+    if lst1[i] != lst2[i]:
+      return False
+    return True
 
-    return is_same(p_lst,q_lst)
+  return is_same(p_lst,q_lst)
+
+
+###############################################################################
+# Other's Solution:
+# Definition for a binary tree node.
+class Solution:
+  def isSameTree(self, p, q):
+    try:
+      if (p==None)&(q==None): return True
+      elif (p.val==q.val)&(self.isSameTree(p.left,q.left))&(self.isSameTree(p.right,q.right)): return True
+      else:return False
+    except:
+      return False
