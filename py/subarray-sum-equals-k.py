@@ -41,8 +41,11 @@
 # Other's Solution:
 # Time conprexity: O(N)
 # Use hashmap to record all sum(0 to x) (as the key)
-nums = [2,2,3,0,2,-1,1,6,-3,3]
-k = 7
+# nums = [2,2,3,0,2,-1,1,6,-3,3]
+# k = 7
+
+nums = [9,9,9]
+k = 18
 # output = 5
 def subarraySum() -> int:
   cnt = 0
@@ -73,8 +76,7 @@ def subarraySum() -> int:
       print('else is called')
       print('v: ', v)
       cache[total] = 1
-      print('cache: ', cache)      
-  # print(cache) # {0: 1, 2: 1, 4: 1, 7: 2, 11: 2, 10: 1, 17: 1}
+      print('cache: ', cache)
   return cnt
 
 print(subarraySum())
