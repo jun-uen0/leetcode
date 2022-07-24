@@ -32,3 +32,24 @@
 # 0 <= nums[i] <= 50
 # 0 <= val <= 100
 
+# My solution:
+# Just remove number of 'val' from list of 'nums'
+
+# nums = [3,2,2,3]
+# val = 3
+nums = [0,1,2,2,3,0,4,2]
+val = 2
+# for i,v in enumerate(nums):
+#   if v == val:
+#     nums.pop(i)
+#     nums[i] = '_'
+# print(nums) # [0, 1, '_', '_', 3, 0, 4, '_']
+
+############
+# Other's solution
+cnt = 0
+for i in range(len(nums)):
+  if nums[i] != val:
+    nums[cnt] = nums[i]
+    cnt+=1
+print(cnt)
