@@ -64,7 +64,7 @@ def minSubArr(nums,target):
         if l > len(st) or l == 0:
           l = len(st)
   return l
-print(minSubArr(nums,target))
+# print(minSubArr(nums,target))
 
 ######################################
 ######################################
@@ -74,3 +74,72 @@ print(minSubArr(nums,target))
 # My code will output 0, but should be 2
 ######################################
 ######################################
+
+# Second Solution:
+# 1. Loop nums
+# 2. Make stack for each loop
+# 3. Contain number of list to 'count' (initial: 0)
+
+# [2]
+# [2,3]
+# [2,3,1]
+# [2,3,1,2]
+# [2,3,1,2,4]
+# [2,3,1,2,4,3]
+
+# [2,  1]
+# [2,  1,2]
+# [2,  1,2,4]
+# [2,  1,2,4,3]
+# [2,    2]
+# [2,    2,4]
+# [2,    2,4,3]
+# [2,      4]
+# [2,      4,3]
+# [2,        3]
+# [2,3]
+# [2,3,  2]
+# [2,3,  2,4]
+# [2,3,  2,4,3]
+# [2,3,    4]
+# [2,3,    4,3]
+# [2,3,      3]
+# [2,3,1]
+# [2,3,1,  4]
+# [2,3,1,  4,3]
+# [2,3,1,2]
+# [2,3,1,2,  3]
+# [3]
+# [3,1]
+# [3,1,2]
+# [3,1,2,3]
+# [3,1,2,3,4]
+# [3,1]
+# ...
+
+target = 7
+nums = [2,3,1,2,4,3]
+
+def minSubArrSec(nums,target):
+  for i in range(len(nums)):
+    st = []
+    cnt = 0
+    for j in range(len(nums)-i):
+      if i == 0:
+        st.append(nums[j])
+        print(st)
+      else:
+        cnt += 1
+      print(cnt)
+        
+  return None
+print(minSubArrSec(nums,target))
+  # l = 0
+  # for i in range(len(nums)):
+  #   st = []
+  #   for j in range(len(nums) -i):
+  #     st.append(nums[j+i])
+  #     if sum(st) == target:
+  #       if l > len(st) or l == 0:
+  #         l = len(st)
+  # return l
