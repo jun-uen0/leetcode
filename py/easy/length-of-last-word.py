@@ -21,5 +21,4 @@
 # 3. Reture the number of last word
 
 s = "   fly me   to   the moon  "
-# print(s.split()) # ['fly', 'me', 'to', 'the', 'moon']
 print(len(s.split()[-1]))

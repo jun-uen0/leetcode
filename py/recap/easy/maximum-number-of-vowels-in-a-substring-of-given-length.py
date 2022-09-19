@@ -16,7 +16,14 @@
 # Explanation: Any substring of length 2 contains 2 vowels.
 
 # Constraints:
-# 1 <= s.length <= 105
+# 1 <= s.le## 58. Length of Last Word
+
+## My answer
+# ```py
+# class Solution:
+#   def lengthOfLastWord(self, s: str) -> int:
+#     return len(s.split()[-1])
+# ```ngth <= 105
 # s consists of lowercase English letters.
 # 1 <= k <= s.length
 
@@ -58,32 +65,67 @@
 # cnt_vowles('abc')
 # print(cnt) # Should be 1
 
-s = "rhythms"
-k = 4
-vwl = ['a','e','i','o','u']
-cnt = cnt_itr = 0
-for i in range(len(s)-k+1):
-  # if cnt == k: return cnt
-  pkt = s[i:i+k]
-  for j in range(k):
-    if any(pkt[j] in s for s in vwl):
-      cnt_itr += 1
-  # if cnt_itr > cnt:
-  #   cnt = cnt_itr
-  cnt = max(cnt_itr,cnt)
-print(cnt)
+# s = "rhythms"
+# k = 4
+# vwl = ['a','e','i','o','u']
+# cnt = cnt_itr = 0
+# for i in range(len(s)-k+1):
+#   # if cnt == k: return cnt
+#   pkt = s[i:i+k]
+#   for j in range(k):
+#     if any(pkt[j] in s for s in vwl):
+#       cnt_itr += 1
+#   # if cnt_itr > cnt:
+#   #   cnt = cnt_itr
+#   cnt = max(cnt_itr,cnt)
+# print('cnt')
+# print(cnt)
 # Time Limit Exceeded: Too slow
 # Time complexity is O(n x k)
 
 # Other's Solution:
 # Time complexity is O(n)
 # https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/discuss/648559/JavaPython-3-Slide-Window-O(n)-codes.
+
+s = "abciiidef"
+# 「abc」「bci」「cii」「iii」「iid」「ide」「def」
+k = 3
+
+# Make a dictionary contains all vowel
 vowels = {'a', 'e', 'i', 'o', 'u'}
+
+# Substitute 0 to ans and cnt
 ans = cnt = 0
-for i, c in enumerate(s):
-  if c in vowels:
+
+# For loop string s,
+# i -> index of s
+# v -> value of s
+for i, v in enumerate(s):
+  print('--')
+  print('i is ',i)
+  print('v is ',v)
+  print('k is ',k)
+
+  # If value is a vowel
+  # Add 1 to cnt
+  if v in vowels:
+    print('if v in vowels')
     cnt += 1
+    print('cnt is ',cnt)
+  
+  # When loop reach to number of k,
+  # Even if find vowel, it's too much couting
+  # So substract 1 from cnt
   if i >= k and s[i-k] in vowels:
+    print('if i >= k and s[i-k] in vowels')
+    print('s[i-k] is ',s[i-k])
     cnt -= 1
-  ans  = max(cnt, ans)
-# return ans   
+    print('cnt is ',cnt)
+  
+  # Get max number from cnt, ans
+  # cnt can be nagative number
+  ans = max(cnt, ans)
+  print('ans is ',ans)
+  print('cnt is ',cnt)
+
+# print(ans)
