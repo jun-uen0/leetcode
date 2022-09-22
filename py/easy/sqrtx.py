@@ -24,6 +24,23 @@
 # Constraints:
 # 0 <= x <= 231 - 1e-9
 
+# Other's Solution:
+# Time Conprexity: O(LogN)
+# Use binary search to find the square root
+# https://leetcode.com/problems/sqrtx/discuss/25061/Python-binary-search-solution-(O(lgn))
+def faster_sol(x):
+  l, r = 0, x
+  while l <= r:
+    mid = l + (r-l)//2
+    if mid * mid <= x < (mid+1)*(mid+1):
+      return mid
+    elif x < mid * mid:
+      r = mid - 1
+    else:
+      l = mid + 1
+
+###############################################################################
+
 # My solution:
 # From 1, to x, check if the square root is equal to the target number
 # Time Conprexity: O(N)
@@ -44,6 +61,7 @@ def mySqrt(x) -> int:
 
 print(mySqrt(x)) # 	Accepted: But too slow
 
+###############################################################################
 # My solution 2:
 # Multiple the number by 2 and check if the square root is equal to the target number
 # Time conprexity: O(LogN)?
@@ -72,19 +90,3 @@ def my_sqrt_2(x) -> int:
         # and want to do i*i*i in next loop, not i*i*2
         break
 print(my_sqrt_2(x)) # WA: Time Limit Exceeded
-
-###############################################################################
-# Other's Solution:
-# Time Conprexity: O(LogN)
-# Use binary search to find the square root
-# https://leetcode.com/problems/sqrtx/discuss/25061/Python-binary-search-solution-(O(lgn))
-def faster_sol(x):
-  l, r = 0, x
-  while l <= r:
-    mid = l + (r-l)//2
-    if mid * mid <= x < (mid+1)*(mid+1):
-      return mid
-    elif x < mid * mid:
-      r = mid - 1
-    else:
-      l = mid + 1
