@@ -51,7 +51,7 @@ def divide() -> int:
   else:
     return count
 
-print(divide())
+# print(divide())
 
 ###############################################################################
 # Other's solution (Faster time complexity)
@@ -69,6 +69,7 @@ def divide_faster() -> int:
     mul = 1
     while dividend_abs >= temp:
       dividend_abs -= temp
+      
       output += mul
       mul += mul
       temp += temp
@@ -79,12 +80,6 @@ def divide_faster() -> int:
   return min(2147483647,max(-21474836478, output))
 
 print(divide_faster())
-
-
-
-
-
-
 
 
 
