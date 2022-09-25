@@ -82,4 +82,26 @@ def intersection(nums1,nums2):
   
   return st
 
-print(intersection(nums1,nums2))
+# print(intersection(nums1,nums2))
+
+
+## Other's Solution
+# URL: https://donic0211.medium.com/leetcode-349-intersection-of-two-arrays-9f99b27cf247
+
+nums1 = [4,9,5]
+nums2 = [9,4,9,8,4]
+
+def intersection(nums1, nums2):
+  return list(set(nums1) & set(nums2))
+
+# print(intersection(nums1,nums2))
+
+set1= {2, 1, 2, 3, 2, 3, 1, 3, 3, 1}
+set2= {2, 4, 5, 6, 7, 4, 4, 5, 6, 9, 7}
+print(set1)
+print(set2)
+print(list(set1 & set2))
+
+
+
+
