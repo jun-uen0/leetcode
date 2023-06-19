@@ -6,7 +6,7 @@
 # without repeating characters.
 
 # Example 1:
-# Input: s = "abcabcbb" -> "abc", "abc"
+# Input: s = "abcabcbb" -> "abc", "ab∂c"
 # Output: 3
 # Explanation: The answer is "abc", with the length of 3.
 
@@ -54,4 +54,4 @@ def lengthOfLongestSubstring(s: str):
       cnt = len(tmp)
   return cnt
 
-print(lengthOfLongestSubstring(s))
+print(lengthOfLongestSubstring(s))　
