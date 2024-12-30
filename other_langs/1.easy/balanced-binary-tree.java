@@ -14,34 +14,34 @@
  * }
  */
 class Solution {
-  public boolean isBalanced(TreeNode root) {
-    // Base case
-    if (root == null) {
-      return true;
-    }
-    if (Height(root) == -1) {
-      return false;
-    }
-    return true;
-  }
-
-  public int Height(TreeNode root) {
-    // Base case
-    if (root == null) {
-      return 0;
+    public boolean isBalanced(TreeNode root) {
+        // Base case
+        if (root == null) {
+            return true;
+        }
+        if (Height(root) == -1) {
+            return false;
+        }
+        return true;
     }
 
-    // Recursive
-    int leftHeight = Height(root.left);
-    int rightHeight = Height(root.right);
+    public int Height(TreeNode root) {
+        // Base case
+        if (root == null) {
+            return 0;
+        }
 
-    if (leftHeight == -1 || rightHeight == -1) {
-      return -1;
+        // Recursive
+        int leftHeight = Height(root.left);
+        int rightHeight = Height(root.right);
+
+        if (leftHeight == -1 || rightHeight == -1) {
+            return -1;
+        }
+        if (Math.abs(leftHeight - rightHeight) > 1) {
+            return -1;
+        }
+        
+        return Math.max(leftHeight, rightHeight) + 1;
     }
-    if (Math.abs(leftHeight - rightHeight) > 1) {
-      return -1;
-    }
-    
-    return Math.max(leftHeight, rightHeight) + 1;
-  }
 }
