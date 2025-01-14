@@ -18,3 +18,8 @@ class Solution {
         return -1;
     }
 }
+
+for (int i = 0; i < 配列の長さ -1; i++) {
+    // iが5783だったらtrue、もしくはインデックス番号を返す
+}
+
