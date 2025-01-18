@@ -1,5 +1,5 @@
-SELECT employee.name AS "Employee"
-FROM Employee employee
+SELECT subordinate.name AS "Employee"
+FROM Employee subordinate
 JOIN Employee manager
-    ON employee.managerId = manager.id
-WHERE employee.salary > manager.salary;
+    ON subordinate.managerId = manager.id
+WHERE subordinate.salary > manager.salary;
